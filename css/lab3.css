@@ -1,0 +1,46 @@
+  
+  
+  
+  
+   h1{
+                color: #F55961;
+                background:  #f8b1cc;
+                text-align: center;
+            }
+            
+            nav a{
+                 font-family: "Palatino Linotype";
+                 
+                color: #040303;
+                background:  #D1FCFA;
+                font-size: 3ex;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+            
+              nav a:hover {
+                 background-color: #b9b1d6;
+                 opacity: 0.6;
+                 outline-style: dotted;
+                 outline-color: purple;
+            }     
+            
+            body{
+                background: #001E28;
+            }
+            
+            main{
+                width: 960px; 
+                padding:2px; 
+                margin: 0 auto; 
+                
+                text-align: center;
+                
+                
+                 background: #005B7A;
+                
+            }
+            
+            div{
+                text-align: center;
+            }
