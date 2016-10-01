@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/lab3.css"></link>
 
 <?php
-
+    
     function displayRandomCard()
     {
         $deck = array();  //This initializes an array of 
@@ -21,11 +21,30 @@
         
         $suits = array("clubs", "diamonds", "hearts", "spades");
         $randomSuitIndex = rand(0,3);
-        $randomSuit = $suits[$randomSuitIndex];     
-        echo "<img src='img/cards/$randomSuit/" . rand(1,13). ".png' />";
+        $randomSuit = $suits[$randomSuitIndex];
+        $card = rand(1,13);
+        echo "<img src='img/cards/$randomSuit/" . $card . ".png' />";
         
     }
-
+    
+    function drawCards()
+    {
+        global $card;
+        echo "<table>";
+            for ($i = 0; $i < 4; $i++)
+            {
+                echo "<tr>";
+                    for ($j = 0; $j < 4; $j++)
+                    {
+                        echo "<td>" . displayRandomCard() . "</td>";
+                    }
+                echo "Points: $card";
+                echo "</tr> <br /><br />";
+                //Add extra if statement to add card for hit.
+                //Need condition to prevent same card from being drawn.
+                    
+            }
+    }
 ?>
 
 
@@ -37,9 +56,9 @@
     </head>
     <body>
         <h1>SilverJack</h1>
-
-    <?= displayRandomCard() ?>
-        
+        <main>
+            <?=drawCards()?>
+        </main>
         <br />
         <br />
     
