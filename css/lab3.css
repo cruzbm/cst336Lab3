@@ -2,8 +2,8 @@
   
   
   
-   h1{
-                color: #F55961;
+           h1{
+                color: red;
                 background:  #f8b1cc;
                 text-align: center;
             }
@@ -37,10 +37,14 @@
                 text-align: center;
                 
                 
-                 background: #005B7A;
+                background: #005B7A;
                 
             }
             
             div{
+                text-align: center;
+            }
+            
+            footer{
                 text-align: center;
             }
