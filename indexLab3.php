@@ -37,19 +37,26 @@
             $points[$k] = 0;
             
         }
-       
+           
+         $players = array(); 
+        for ($k = 1; $k <= 4; $k++)
+        {
+            $players[] = $k;
+        }
+        $players = array("Meya", "Tom", "Luis", "Brandon");//players array with names 
+        
                 echo "<tr>";
                   
                     
                     $j = 0;
-                   while ($points[$i] <= 35)
+                   while ($points[$i] <= 35) //keep drawing until 35
                     {
                         $newtemp = displayRandomCard();
                         
                         echo "<td>" . $newtemp . "</td>";
                         
                         $newcard = $newtemp;
-                         if ( $newcard >= 10 )
+                         if ( $newcard >= 10 ) // if card is queen jack or king it has 10 points 
                           {
                             $points[$i] += 10; 
                              
@@ -67,38 +74,83 @@
             
                 //Add extra if statement to add card for hit.
                 //Need condition to prevent same card from being drawn.
-                    
     }
+    
+       
+          $winner = array(); //declaring an array to hold points of the winners, in case there are more than one winner 
+        for ($k = 0; $k < 4; $k++)
+        {
+            $winner[$k] = 0;
+        }
+        
+        $max = -2;
+        $maxIndex;
+        $player;
+        for ($j=0; $j < 4; $j++){
+            if ( $points[$i] > 42) 
+            {
+                $points[$i] == 0;
+            }
+          
+          for($i = 0; $i < 4; $i++) //finding the max points
+          {
+              
+              if ($max <= $points[$i])
+              {
+                  $maxIndex = $i;
+                  $player = $i;
+                 
+              }
+             
+          }
+          
+
+        
+        
+        echo "Winner: " . $points[$maxIndex] ; //need to display winner name
+  
+    //    echo $players[($player+1)];
+            
+
+                //Need condition to prevent same card from being drawn. //still need
+                    
+}
       
 
 ?>
 
 
 
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
+
     <head>
         <title>SilverJack Lab</title>
     </head>
+
     <body>
         <h1>SilverJack</h1>
         <main>
             <table>
-            Brandon: <img src="img/players/brandon.png" alt="p1" width="100" /><?=drawCards()?>
-            Luis: <img src="img/players/luis.png" alt="p2" width="100" /><?=drawCards()?>
-            Meya: <img src="img/players/meya.png" alt="p3" width="100" /><?=drawCards()?>
-            Photogenic Man: <img src="img/players/man.png" alt="p4" width="100" /><?=drawCards()?>
-            <table>
+                Brandon: <img src="img/players/brandon.png" alt="p1" width="100" />
+                <?=drawCards()?>
+                    Luis: <img src="img/players/luis.png" alt="p2" width="100" />
+                    <?=drawCards()?>
+                        Meya: <img src="img/players/meya.png" alt="p3" width="100" />
+                        <?=drawCards()?>
+                            Photogenic Man: <img src="img/players/man.png" alt="p4" width="100" />
+                            <?=drawCards()?>
+                                <table>
         </main>
         <br />
         <br />
-    
-            <footer>
-                <hr> &copy; Cruz, Gorbea, Mora, 2016 <br /> Disclaimer: The information displayed and linked is the product of an initial website build for an intro to internet programming class. <br />
-                It serves as a website built for homework purposes.<br />
 
-              <img src="../../../CSUMB logo.jpg" width="100">
-            </footer>
+        <footer>
+            <hr> &copy; Cruz, Gorbea, Mora, 2016 <br /> Disclaimer: The information displayed and linked is the product of an initial website build for an intro to internet programming class. <br /> It serves as a website built for homework purposes.<br />
+
+            <img src="../../../CSUMB logo.jpg" width="100">
+        </footer>
 
     </body>
-</html>
+
+    </html>
