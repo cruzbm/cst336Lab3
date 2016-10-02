@@ -6,7 +6,7 @@
     {
         $deck = array();  //This initializes an array of 
         
-        for ($i = 0; $i <= 52; $i++)
+        for ($i = 0; $i < 52; $i++)
         {
             $deck[] = $i;
         }
@@ -40,6 +40,9 @@
                     }
                 echo "Points: $card";
                 echo "</tr> <br /><br />";
+                
+                
+                
                 //Add extra if statement to add card for hit.
                 //Need condition to prevent same card from being drawn.
                     
@@ -66,7 +69,7 @@
                 <hr> &copy; Cruz, Gorbea, Mora, 2016 <br /> Disclaimer: The information displayed and linked is the product of an initial website build for an intro to internet programming class. <br />
                 It serves as a website built for homework purposes.<br />
 
-                <img src="../../../CSUMB logo.jpg" width="250" id="csumbLogo"></img>
+              <img src="/img/otter$.png" alt = "Otters" height="200" width="200">
             </footer>
 
     </body>
