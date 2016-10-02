@@ -37,6 +37,16 @@
             
         }
        
+               
+         $players = array(); 
+        for ($k = 1; $k <= 4; $k++)
+        {
+            $players[] = $k;
+        }
+        $players = array("Meya", "Tom", "Luis", "Brandon");//players array with names 
+        
+       
+       
         echo "<table>";
             for ($i = 0; $i < 4; $i++)
             {
@@ -44,14 +54,14 @@
                   
                     
                     $j = 0;
-                   while ($points[$i] <= 35)
+                   while ($points[$i] <= 35) //keep drawing until 35
                     {
                         $newtemp = displayRandomCard();
                         
                         echo "<td>" . $newtemp . "</td>";
                         
                         $newcard = $newtemp;
-                         if ( $newcard >= 10 )
+                         if ( $newcard >= 10 ) // if card is queen jack or king it has 10 points 
                           {
                             $points[$i] += 10; 
                              
@@ -64,13 +74,51 @@
                     }
                     
                 
-                echo "Points: $points[$i]";
+                echo  $players[$i]. "   Points: $points[$i]";
                 echo "</tr> <br /><br />";
+                
             }
-                //Add extra if statement to add card for hit.
-                //Need condition to prevent same card from being drawn.
+
+    
+       
+          $winner = array(); //declaring an array to hold points of the winners, in case there are more than one winner 
+        for ($k = 0; $k < 4; $k++)
+        {
+            $winner[$k] = 0;
+        }
+        
+        $max = -2;
+        $maxIndex;
+        $player;
+        for ($j=0; $j < 4; $j++){
+            if ( $points[$i] > 42) 
+            {
+                $points[$i] == 0;
+            }
+          
+          for($i = 0; $i < 4; $i++) //finding the max points
+          {
+              
+              if ($max <= $points[$i])
+              {
+                  $maxIndex = $i;
+                  $player = $i;
+                 
+              }
+             
+          }
+          
+
+        }
+        
+        echo "Winner: " . $points[$maxIndex] ; //need to display winner name
+  
+    //    echo $players[($player+1)];
+            
+
+                //Need condition to prevent same card from being drawn. //still need
                     
-            }
+}
       
 
 ?>
