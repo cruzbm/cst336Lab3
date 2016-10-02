@@ -24,30 +24,55 @@
         $randomSuit = $suits[$randomSuitIndex];
         $card = rand(1,13);
         echo "<img src='img/cards/$randomSuit/" . $card . ".png' />";
-        
+        return $card; 
     }
     
     function drawCards()
     {
         global $card;
+        $points = array(); 
+        for ($k = 0; $k < 4; $k++)
+        {
+            $points[$k] = 0;
+            
+        }
+       
         echo "<table>";
             for ($i = 0; $i < 4; $i++)
             {
                 echo "<tr>";
-                    for ($j = 0; $j < 4; $j++)
+                  
+                    
+                    $j = 0;
+                   while ($points[$i] <= 35)
                     {
-                        echo "<td>" . displayRandomCard() . "</td>";
+                        $newtemp = displayRandomCard();
+                        
+                        echo "<td>" . $newtemp . "</td>";
+                        
+                        $newcard = $newtemp;
+                         if ( $newcard >= 10 )
+                          {
+                            $points[$i] += 10; 
+                             
+                           }
+                         else{
+                            $points[$i] += $newcard;
+                            
+                        }
+                        $j++; 
                     }
-                echo "Points: $card";
+                    
+                
+                echo "Points: $points[$i]";
                 echo "</tr> <br /><br />";
-                
-                
-                
+            }
                 //Add extra if statement to add card for hit.
                 //Need condition to prevent same card from being drawn.
                     
             }
-    }
+      
+
 ?>
 
 
