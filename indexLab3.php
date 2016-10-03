@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="css/lab3.css"></link>
 
 <?php
-    $playerPoints = array("p1" => 0, "p2" => 0, "p3" => 0, "p4" => 0);
-    
+    $playerPoints = array();
+    $playerCounter = 1;
     function displayRandomCard()
     {
-        $deck = array();  //This initializes an array of 
+        $deck = array();
         
         for ($i = 0; $i < 52; $i++)
         {
@@ -31,6 +31,9 @@
     function drawCards()
     {
         global $card;
+        global $playerPoints;
+        global $playerCounter;
+        
         $points = array(); 
         for ($k = 0; $k < 4; $k++)
         {
@@ -67,17 +70,18 @@
                         }
                         $j++; 
                     }
-                    
+                
+                $playerPoints[] = $points;
                 
                 echo "Points: $points[$i]";
                 echo "</tr> <br /><br />";
-            
+                
                 //Add extra if statement to add card for hit.
                 //Need condition to prevent same card from being drawn.
     }
     
-       
-          $winner = array(); //declaring an array to hold points of the winners, in case there are more than one winner 
+       /*
+        $winner = array(); //declaring an array to hold points of the winners, in case there are more than one winner 
         for ($k = 0; $k < 4; $k++)
         {
             $winner[$k] = 0;
@@ -107,21 +111,39 @@
 
         
         
-        echo "Winner: " . $points[$maxIndex] ; //need to display winner name
+        echo "Winner: " . $points[$maxIndex] ; //need to display winner name*/
   
     //    echo $players[($player+1)];
             
 
                 //Need condition to prevent same card from being drawn. //still need
                     
-}
+//}
       
+    function findWinner()
+    {
+        global $playerPoints;
+        $winner = max(array_keys($playerPoints));
+        switch ($winner){
+            case 1:
+                echo "Brandon Won!";
+                break;
+            case 2:
+                echo "Luis Won!";
+                break;
+            case 3:
+                echo "Meya Won!";
+                break;
+            case 4:
+                echo "Some random dude Won!";
+                break;
+        }
+    }
 
 ?>
 
 
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html>
 
     <head>
@@ -133,14 +155,17 @@
         <main>
             <table>
                 Brandon: <img src="img/players/brandon.png" alt="p1" width="100" />
-                <?=drawCards()?>
-                    Luis: <img src="img/players/luis.png" alt="p2" width="100" />
                     <?=drawCards()?>
-                        Meya: <img src="img/players/meya.png" alt="p3" width="100" />
-                        <?=drawCards()?>
-                            Photogenic Man: <img src="img/players/man.png" alt="p4" width="100" />
-                            <?=drawCards()?>
-                                <table>
+                Luis: <img src="img/players/luis.png" alt="p2" width="100" />
+                    <?=drawCards()?>
+                Meya: <img src="img/players/meya.png" alt="p3" width="100" />
+                    <?=drawCards()?>
+                Photogenic Man: <img src="img/players/man.jpg" alt="p4" width="100" />
+                    <?=drawCards()?>
+            <table>
+                
+                <br />
+                <?=findWinner()?>
         </main>
         <br />
         <br />
@@ -153,4 +178,4 @@
 
     </body>
 
-    </html>
+</html>
